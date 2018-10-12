@@ -14,4 +14,8 @@ myCollect = db[DB_collection]
 
 
 # 存入数据库
-db[DB_collection].remove({'age':30})
+def save(doc):
+    try:
+        myCollect.insert(doc)
+    except Exception:
+        print('存储到MongoDb失败', doc)
