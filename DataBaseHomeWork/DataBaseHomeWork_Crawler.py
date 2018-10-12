@@ -4,8 +4,9 @@ import pandas as pd
 import json
 import DataBaseHomeWort_MongoDB as db
 
-requrl = 'https://movie.douban.com/subject/26985127/comments' + '?' + 'start=0' + '&limit=20' 
-resp = request.urlopen(requrl) 
+requrl = 'https://movie.douban.com/subject/26985127/comments'
+url_attributes='?start=0&limit=20'
+resp = request.urlopen(requrl+url_attributes)
 html_data = resp.read().decode('utf-8') 
 soup = bs(html_data, 'html.parser')
 
@@ -39,4 +40,9 @@ index = [i for i in range(len(data_dict['count']))]
 data_frame = pd.DataFrame(data_dict, columns=columns, index=index)
 
 #将数据存入数据库
-db.save(json.loads(data_frame.T.to_json()).values())
+#db.save(json.loads(data_frame.T.to_json()).values())
+
+#获取下一页链接
+paginator=soup.find_all('div', id='paginator')[0]
+url_attributes=paginator.find_all('a', class_='next')[0]['href']
+print(url_attributes)
