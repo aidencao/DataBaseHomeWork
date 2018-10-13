@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>5290155f-642e-49e6-a4a1-d9a316fce3fb</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>DataBaseHomeWork_Crawler.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,8 +21,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DataBaseHomeWork_Crawler.py" />
-    <Compile Include="DataBaseHomeWort_MongoDB.py">
+    <Compile Include="Analysis.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Crawler.py" />
+    <Compile Include="MongoDB.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
