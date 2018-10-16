@@ -5,4 +5,4 @@ if __name__ == "__main__":
     #Crawler.getData()
     #Analysis.showstar()
     print('haha')
-    Analysis.getWordcloud_withimg()
+    Analysis.getWordcloud(None)
